@@ -5,7 +5,10 @@ Project is still raw, however accomplishes the purpose.
 
 ### Prerequisites
 1. Linux (mine is Ubuntu 16.04 )
-2. Motion software (sudo apt-get install motion)
+2. Motion software 
+```sh
+sudo apt-get install motion
+```
 3. OpenCV software (tedious process, but there is a well written guide https://goo.gl/PC10Rl)
 
 ### Steps
