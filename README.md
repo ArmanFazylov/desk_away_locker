@@ -51,7 +51,7 @@ $ workon cv
 
 
 ### How it works
-Basically, shantz-locker.sh script upon detected motion creates file motion_images/autolock_motion.jpg. Then, python script is run to detect if the newly created autolock_motion.jpg picture has a face on it. If it doesn't, the screen is locked. 
+Basically, (shantz-locker.sh) upon detected motion creates file 'motion_images/autolock_motion.jpg'. Then, python script (detect.py) is run to detect if the newly created autolock_motion.jpg picture has a face on it. If it doesn't - it means that user left the desk (i.e. picture of a chair or a wall). So the screen is locked. 
 Feel free to to add improvements.
 
 
