@@ -1,6 +1,15 @@
 #!/bin/bash
 # Shantz Webcam Autolocker
 
+stop_motion=`sudo pkill -f motion`
+run_motion=`sudo motion -c motion.conf start`
+`echo $stop_motion`
+sleep 3
+`echo $run_motion`
+sleep 3
+motion_pid=$(ps aux | grep motion | grep -v grep | awk '{print $2}')
+echo "pid: $motion_pid"
+
 gap_sample_cnt=0
 gap_sample_max=3
 sleep_time_lock=2
@@ -42,8 +51,8 @@ do
 	if [ $gap_sample_cnt -ge $gap_sample_max ]
 	then
 	result=$facedetect_cmd
-	if [ "$result" == "0" ]
-	then
+	echo "$result"
+	if [ $result -eq 0 ] || [ "$result" == "0"]; then
 	echo "no face -> locking!"
 	`echo $lock_cmd`
 	gap_sample_cnt=0
