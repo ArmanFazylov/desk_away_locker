@@ -1,6 +1,15 @@
 
 import cv2
 import sys
+import logging
+
+logging.basicConfig(level=logging.INFO,
+                    format='%(message)s')
+
+#logging.basicConfig(level=logging.DEBUG,
+#                    format='%(asctime)s %(levelname)s %(message)s',
+#                    filename='/tmp/desk_away_app.log',
+#                    filemode='w')
 
 # Get user supplied values
 imagePath = sys.argv[1]
@@ -24,9 +33,9 @@ faces = faceCascade.detectMultiScale(
 
 #print "Found {0} faces!".format(len(faces))
 
-if len(faces) > 0: 
+if len(faces) > 0:
 	print 1
-else: 
+else:
 	print 0
 
 # Draw a rectangle around the faces
