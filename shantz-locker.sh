@@ -3,18 +3,20 @@
 
 stop_motion=`sudo pkill -f motion`
 run_motion=`sudo motion -c motion.conf start`
+#rm_pic=`sudo rm  motion_images/autolock_motion.jpg`
 `echo $stop_motion`
 sleep 3
+#`echo $rm_pic`
 `echo $run_motion`
 sleep 3
-motion_pid=$(ps aux | grep motion | grep -v grep | awk '{print $2}')
-echo "pid: $motion_pid"
+#motion_pid=$(ps aux | grep motion | grep -v grep | awk '{print $2}')
+#echo "pid: $motion_pid"
 
 gap_sample_cnt=0
-gap_sample_max=3
-sleep_time_lock=2
+gap_sample_max=2
+sleep_time_lock=1
 
-echo "$motion_sample_max $gap_sample_max $sleep_time_lock $sleep_time_unlock"
+#echo "$motion_sample_max $gap_sample_max $sleep_time_lock $sleep_time_unlock"
 
 wm=`printenv | grep GNOME_DESKTOP_SESSION_ID`
 if [ -n "$wm" ]
@@ -51,11 +53,12 @@ do
 	if [ $gap_sample_cnt -ge $gap_sample_max ]
 	then
 	result=$facedetect_cmd
-	echo "$result"
-	if [ $result -eq 0 ] || [ "$result" == "0"]; then
+	echo "result is $result"
+	if [[ "$result" != "1" ]]; then
 	echo "no face -> locking!"
 	`echo $lock_cmd`
 	gap_sample_cnt=0
+	result=-1
 	fi
 	fi
 	else
