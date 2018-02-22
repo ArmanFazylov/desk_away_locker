@@ -13,10 +13,11 @@ sudo apt-get install motion
 
 ### Steps
 1. Clone repo
-2. In file motion.conf
+2. In file motion.conf:
+
 Change daemon to 'on' ( to run motion as daemon)
 ```sh
-daemon off
+daemon on
 ```
 Run below command to check webcam names on the computer
 ```sh
@@ -48,13 +49,13 @@ $ workon cv
 ```
 6. Run bash_script 
 ```sh
-(cv) $ ./shantz-locker.sh
+(cv) $ python locker.py
 ```
 7. Enjoy ur privacy)
 
 
 ### How it works
-Basically, (shantz-locker.sh) upon detected motion creates file 'motion_images/autolock_motion.jpg'. Then, python script (detect.py) is run to detect if the newly created autolock_motion.jpg picture has a face on it. If it doesn't - it means that user left the desk (i.e. picture of a chair or a wall). So the screen is locked. 
+Basically, (locker.py) upon detected motion creates file 'motion_images/autolock_motion.jpg'. Then, face recognition command is run to detect if the newly created autolock_motion.jpg picture has a face on it. If it doesn't - it means that user left the desk (i.e. picture of a chair or a wall). So the screen is locked. 
 Feel free to to add improvements.
 
 
