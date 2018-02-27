@@ -47,9 +47,9 @@ def detectFace():
 
 # note: python version is 2.7!
 def turn_on_motion():
-    os.system('sudo pkill -f motion')
+    os.system('pkill -f motion')
     sleep(3)
-    os.system('sudo motion -c motion.conf start')
+    os.system('motion -c motion.conf start')
     sleep(4)
 
 def main():
