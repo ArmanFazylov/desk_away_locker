@@ -70,6 +70,7 @@ def main():
                 if not is_face:
                     gap_sample_cnt = 0
                     logger.debug("No faces, locking screen...")
+                    os.system('setxkbmap us') #switch keyboard to US
                     os.popen('gnome-screensaver-command --lock')
                 else:
                     logger.debug("detected face")
