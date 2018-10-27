@@ -9,7 +9,7 @@ Project is still raw, however accomplishes the purpose.
 ```sh
 sudo apt-get install motion
 ```
-3. OpenCV3 + dblib software (tedious process, but there is a well written guide https://goo.gl/PC10Rl)
+3. OpenCV3 + dlib software (tedious process, but there is a well written guide https://goo.gl/PC10Rl)
 
 ### Steps
 1. Clone repo
