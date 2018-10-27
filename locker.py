@@ -16,6 +16,8 @@ logging.basicConfig(level=logging.DEBUG,
 logger = logging.getLogger('my_logger')
 handler = RotatingFileHandler('/tmp/desk_away_app.log', maxBytes=2000, backupCount=10)
 logger.addHandler(handler)
+## stout logging
+logger.addHandler(logging.StreamHandler())
 
 # Get user supplied values
 imagePath = "./motion_images/autolock_motion.jpg"
