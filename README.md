@@ -4,12 +4,12 @@ At work we have a prank to install browser extension which replaces all images t
 Project is still raw, however accomplishes the purpose.
 
 ### Prerequisites
-1. Linux (mine is Ubuntu 16.04 )
-2. Motion software 
+1. Linux (mine is Ubuntu 18.10 )
+2. Motion + Python software 
 ```sh
 sudo apt-get install motion
 ```
-3. OpenCV software (tedious process, but there is a well written guide https://goo.gl/PC10Rl)
+3. OpenCV3 + dblib software (tedious process, but there is a well written guide https://goo.gl/PC10Rl)
 
 ### Steps
 1. Clone repo
@@ -33,21 +33,25 @@ Change input config
 input -1
 ```
 
-3. Enter your python environment (as per guide https://goo.gl/PC10Rl)
+3. Enter your python3 environment (as per guide https://goo.gl/PC10Rl)
 ```sh
-$ workon cv
+$ workon cv (or source activate cv)
 ```
-4. Run bash_script (make sure it is executable)
+4. Train AI with your photos (it will ask you for your name, then take 10 photos of you and train AI model)
+```sh
+(cv) python train.py 
+```
+5. Run bash_script (make sure it is executable)
 ```sh
 (cv) $ nohup python locker.py &
 ```
-5. Enjoy ur privacy)
+6. Enjoy ur privacy)
 
 
 ### How it works
-Basically, (locker.py) upon detected motion creates file 'motion_images/autolock_motion.jpg'. Then, face recognition command is run to detect if the newly created autolock_motion.jpg picture has a face on it. If it doesn't - it means that user left the desk (i.e. picture of a chair or a wall). So the screen is locked. 
+Basically, (locker.py) upon detected motion creates file 'motion_images/autolock_motion.jpg'.
+Then, face recognition command is run to detect if the newly created autolock_motion.jpg picture has a Person's face on it. 
+If it doesn't - it means that user left the desk (i.e. picture of a chair or a wall). So the screen is locked. 
 Feel free to to add improvements.
 
 
-### Future
-I am planning to go one step further, and lock screen based on face recognition --- lock screen if person is not me))

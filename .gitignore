@@ -2,3 +2,5 @@ motion_images/autolock_motion.jpg
 ~
 .idea
 nohup.out
+*_encodings.pickle
+my_photos/*
