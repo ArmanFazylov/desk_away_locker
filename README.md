@@ -51,3 +51,6 @@ Feel free to to add improvements.
 
 ### Future
 I am planning to go one step further, and lock screen based on face recognition --- lock screen if person is not me))
+
+### Update
+Yay! I've added facerecognition -> see branch facerecognition :)
