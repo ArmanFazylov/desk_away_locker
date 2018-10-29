@@ -50,8 +50,22 @@ $ workon cv (or source activate cv)
 
 ### How it works
 Basically, (locker.py) upon detected motion creates file 'motion_images/autolock_motion.jpg'.
-Then, face recognition command is run to detect if the newly created autolock_motion.jpg picture has a Person's face on it. 
+When there is a motion, program asssumes user is nearby. Counter is continuously reset.
+Once there is a stillness, face recognition command is run to detect if the latest autolock_motion.jpg picture has a Person's face on it. 
 If it doesn't - it means that user left the desk (i.e. picture of a chair or a wall). So the screen is locked. 
 Feel free to to add improvements.
 
-
+### Crontab
+In case you want to install it as crontab (upon machine restart or at certain time of the day)
+1. Add python to PATH at the top of crontab (crontab -e)
+```sh
+PATH=/opt/anaconda3/envs/machine_learning/bin:/...
+```
+2. Add time when to turn on the script (make sure to find out which DISPLAY var is used!)
+```sh
+38 12 * * * export DISPLAY=:1 && work on cv && cd /path/to/desk_away_locker && sudo python locker.py 2> /tmp/error_deskaway.txt
+```
+3. In case you run into "DBUS: Connection refused error"
+```sh
+sudo chown $USER:$USER -R .dbus/
+```
