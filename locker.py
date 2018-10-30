@@ -25,8 +25,8 @@ logger.addHandler(logging.StreamHandler())
 
 # Get user supplied values
 imagePath = "./motion_images/autolock_motion.jpg"
-gap_sample_max = 2
-sleep_time_lock = 2
+gap_sample_max = 1
+sleep_time_lock = 1
 
 
 def detect_person(person_name):
@@ -91,7 +91,7 @@ def main():
                 if not is_face:
                     gap_sample_cnt = 0
                     logger.debug("No faces, locking screen...")
-                    os.system('setxkbmap us')  # switch keyboard to US
+                    os.system('setxkbmap -option grp:alt_shift_toggle us,ru')  # switch keyboard to US
                     os.popen('gnome-screensaver-command --lock')
                 else:
                     logger.debug("detected face")
